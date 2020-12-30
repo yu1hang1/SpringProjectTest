@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:wconfig="http://www.wormpex.com/schema/wconfig"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.wormpex.com/schema/wconfig
+                           http://www.wormpex.com/schema/wconfig.xsd
+                           http://www.springframework.org/schema/aop
+                           http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+    <context:annotation-config/>
+
+    <context:component-scan base-package="com.wormpex.hang.ims">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <!-- 没有数据库操作时，需要开启下面的行，否则启动会报加载log包报错 -->
+        <!--<context:exclude-filter type="regex" expression="com\.wormpex\.hang\.ims\.common\.log\..*"/>-->
+    </context:component-scan>
+
+    <context:property-placeholder location="classpath:*.properties" ignore-unresolvable="true"/>
+    <!--开启 WConfig-->
+    <!-- 参考 http://wiki.corp.bianlifeng.com/pages/viewpage.action?pageId=11010855 -->
+    <!-- 可以写多个文件，用逗号分隔，作用同Spring的 <context:property-placeholder /> -->
+<!--    <wconfig:annotation-driven trim-values="true"/>-->
+    <!--<wconfig:config trim-values="true" ignore-unresolvable="true"-->
+    <!--files="config.properties, wddl_datasource.properties, dubbo.properties, jdbc.properties, redis.properties, wmq.properties"/>-->
+    <aop:aspectj-autoproxy proxy-target-class="true" />
+
+    <import resource="classpath:spring/applicationContext-dataSource.xml"/>
+<!--    <import resource="classpath:spring/applicationContext-bean.xml"/>-->
+    <!--<import resource="classpath:spring/applicationContext-job.xml"/>-->
+    <!--<import resource="classpath:spring/applicationContext-redis.xml"/>-->
+<!--    <import resource="classpath:spring/applicationContext-crate.xml"/>-->
+
+    <!--<import resource="classpath:dubbo/dubbo-registry.xml"/>-->
+    <!--<import resource="classpath:dubbo/dubbo-provider.xml"/>-->
+    <!--<import resource="classpath:dubbo/dubbo-consumer.xml"/>-->
+
+</beans>

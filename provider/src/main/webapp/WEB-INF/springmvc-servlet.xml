@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans" xmlns:web="http://www.wormpex.com/schema/common/web"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.wormpex.com/schema/common/web http://www.wormpex.com/schema/common-web.xsd
+                           http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- web:annotation-driven是Common Framework提供的特性，和Spring MVC提供有冲突，请删除<mvc:annotation-driven />，同时如果定义了@com.wormpex.common.web.annotation.EnableWebMvc，则效果等同此配置 -->
+    <!-- 如果添加后，导致无法启动，请联系fd@wormpex.com -->
+    <web:annotation-driven request-trim="true"/>
+
+    <context:component-scan base-package="com.wormpex.hang.ims.archetype.controller" use-default-filters="false">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+<!--    <mvc:interceptors>-->
+<!--        &lt;!&ndash;<bean class="com.wormpex.hang.ims.common.interceptor.TerminalAuthInterceptor"/>&ndash;&gt;-->
+<!--        <bean class="com.wormpex.idss.ims.common.interceptor.UriVersionInterceptor"/>-->
+<!--    </mvc:interceptors>-->
+
+
+    <bean id="exceptionHandlerExceptionResolver"
+          class="org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver">
+        <property name="order" value="-1"/>
+        <property name="messageConverters">
+            <list>
+                <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+            </list>
+        </property>
+    </bean>
+
+</beans>

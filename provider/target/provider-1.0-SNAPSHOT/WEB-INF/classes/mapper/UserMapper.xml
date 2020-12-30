@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wormpex.hang.ims.archetype.dao.UserDao">
+
+    <resultMap id="UserMap" type="com.wormpex.hang.ims.archetype.model.po.UserPo" />
+
+    <sql id ="User_Column">
+    id, username, password
+  </sql>
+    <select id="getUserByUsername" parameterType="java.lang.String" resultMap="UserResult">
+        select
+        <include refid="User_Column"/>
+        from user1
+    </select>
+
+</mapper>

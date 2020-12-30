@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>hang</artifactId>
+        <groupId>BLF</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>provider</artifactId>
+<!--    provider 是一个war包-->
+    <packaging>war</packaging>
+
+
+    <dependencies>
+
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>biz</artifactId>
+        </dependency>
+
+        <!-- common-web-support内部使用servlet容器支持的ServletContainerInitializer机制，
+        自动添加了CharacterEncodingFilter和ServiceWatcher，请删除web.xml中的配置 -->
+        <dependency>
+            <groupId>com.wormpex.common</groupId>
+            <artifactId>wcommon-web-support</artifactId>
+        </dependency>
+
+        <!-- wconfig -->
+        <dependency>
+            <groupId>com.wormpex.fd</groupId>
+            <artifactId>wconfig-client</artifactId>
+        </dependency>
+
+        <!-- wddl -->
+        <dependency>
+            <groupId>com.wormpex.fd</groupId>
+            <artifactId>wddl</artifactId>
+        </dependency>
+
+        <!-- logging -->
+        <dependency>
+            <groupId>com.wormpex.fd</groupId>
+            <artifactId>wlogging-logback</artifactId>
+        </dependency>
+
+        <!-- wschedule -->
+        <dependency>
+            <groupId>com.wormpex.fd</groupId>
+            <artifactId>wschedule-client</artifactId>
+        </dependency>
+
+        <!-- redis -->
+        <dependency>
+            <groupId>com.wormpex.fd</groupId>
+            <artifactId>wclient-redis</artifactId>
+        </dependency>
+
+        <!-- http -->
+        <dependency>
+            <groupId>com.wormpex.fd</groupId>
+            <artifactId>wclient-http</artifactId>
+        </dependency>
+
+        <!-- rpc -->
+        <dependency>
+            <groupId>com.wormpex.fd</groupId>
+            <artifactId>wclient-rpc</artifactId>
+        </dependency>
+
+        <!-- wmq -->
+        <dependency>
+            <groupId>com.wormpex.inf</groupId>
+            <artifactId>wmq-client</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+        </dependency>
+
+        <!-- spring -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+        </dependency>
+
+        <!-- db -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jdbc</artifactId>
+        </dependency>
+
+
+        <!-- apache -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <!-- crate client, 不使用请注掉 -->
+        <dependency>
+            <groupId>io.crate</groupId>
+            <artifactId>crate-jdbc</artifactId>
+        </dependency>
+
+        <!-- test -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-api-mockito</artifactId>
+        </dependency>
+
+    </dependencies>
+
+
+</project>

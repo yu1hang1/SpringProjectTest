@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <settings>
+        <!-- 这个配置使全局的映射器启用或禁用缓存 -->
+        <setting name="cacheEnabled" value="false"/>
+
+        <!-- 将 foo_bar 样式的数据库字段映射为 fooBar 样式的 Java 字段 -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+
+        <!-- 允许 JDBC 支持生成的键。需要适合的驱动。如果设置为true则这个设置强制生成的键被使用，尽管一些驱动拒绝兼容但仍然有效（比如 Derby） -->
+        <setting name="useGeneratedKeys" value="true"/>
+
+        <!-- 指定 MyBatis 如何自动映射列到字段/属性。PARTIAL 只会自动映射简单，没有嵌套的结果。FULL 会自动映射任意复杂的结果（嵌套的或其他情况） -->
+        <!-- <setting name="autoMappingBehavior" value="PARTIAL"/> -->
+
+        <!-- 配置默认的执行器。SIMPLE 执行器没有什么特别之处。REUSE 执行器重用预处理语句。BATCH 执行器重用语句和批量更新 -->
+        <setting name="safeRowBoundsEnabled" value="false"/>
+
+        <setting name="defaultExecutorType" value="REUSE"/>
+
+        <!-- 设置超时时间，它决定驱动等待一个数据库响应的时间 -->
+        <setting name="defaultStatementTimeout" value="600"/>
+
+        <!-- 打印sql语句 -->
+        <setting name="logImpl" value="STDOUT_LOGGING" />
+    </settings>
+
+    <typeAliases>
+        <package name="com.wormpex.hang.ims.common.mybatis.handler" />
+    </typeAliases>
+
+    <plugins>
+        <plugin interceptor="com.wormpex.common.orm.mybatis.plugin.CommonMyBatisInterceptor"/>
+    </plugins>
+
+</configuration>

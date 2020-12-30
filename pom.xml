@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>BLF</groupId>
+  <artifactId>hang</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+
+
+  <modules>
+    <module>biz</module>
+    <module>common</module>
+    <module>dao</module>
+    <module>provider</module>
+    <module>service</module>
+    <module>model</module>
+  </modules>
+
+
+
+  <parent>
+    <groupId>com.wormpex.common</groupId>
+    <artifactId>wsupom-generic</artifactId>
+    <!-- 及时更新这个版本 -->
+    <version>1.0.6</version>
+  </parent>
+
+
+  <properties>
+    <fd-bom.version>1.3.4</fd-bom.version>
+    <rbac.api.version>1.0.12</rbac.api.version>
+    <user-center.version>1.0.91</user-center.version>
+    <bach-root.bundles>1.1.12</bach-root.bundles>
+    <ims-common.version>1.0.9-SNAPSHOT</ims-common.version>
+    <crate-jdbc.version>3.0.5</crate-jdbc.version>
+    <mockito-core.version>2.8.9</mockito-core.version>
+    <powermock-api-mockito.version>1.7.4</powermock-api-mockito.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <!--保证fd-bom为第一项引入-->
+      <dependency>
+        <groupId>com.wormpex.fd</groupId>
+        <artifactId>fd-bom</artifactId>
+        <version>${fd-bom.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <!-- module -->
+      <dependency>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>common</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>model</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>biz</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>service</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>dao</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.wormpex.idss.ims</groupId>
+        <artifactId>ims-common</artifactId>
+        <version>${ims-common.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.wormpex.platform</groupId>
+        <artifactId>rbac-api</artifactId>
+        <version>${rbac.api.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.wormpex.cvs</groupId>
+        <artifactId>user-center-api</artifactId>
+        <version>${user-center.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.wormpex.bach</groupId>
+        <artifactId>bach-root.bundles</artifactId>
+        <version>${bach-root.bundles}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>io.crate</groupId>
+        <artifactId>crate-jdbc</artifactId>
+        <version>${crate-jdbc.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-core</artifactId>
+        <version>${mockito-core.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.powermock</groupId>
+        <artifactId>powermock-api-mockito</artifactId>
+        <version>${powermock-api-mockito.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-archetype-plugin</artifactId>
+        <version>3.0.1</version>
+      </plugin>
+    </plugins>
+  </build>
+
+
+
+
+</project>
